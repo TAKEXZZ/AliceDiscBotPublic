@@ -1,4 +1,7 @@
 import subprocess
+import config
+
+userfolder = config.userfolder
 
 def creat_WAV(inputText):
         #message.contentをテキストファイルに書き込み
@@ -7,13 +10,13 @@ def creat_WAV(inputText):
     with open(input_file,'w',encoding='shift_jis') as file:
         file.write(inputText)
 
-    command = 'C:/open_jtalk/bin/open_jtalk -x {x} -m {m} -r {r} -ow {ow} {input_file}'
+    command = userfolder + '/open_jtalk/bin/open_jtalk -x {x} -m {m} -r {r} -ow {ow} {input_file}'
 
     #辞書のPath
-    x = 'C:/open_jtalk/bin/dic'
+    x = userfolder + '/open_jtalk/bin/dic'
 
     #ボイスファイルのPath
-    m = 'C:/open_jtalk/bin/nitech_jp_atr503_m001.htsvoice'
+    m = userfolder + '/open_jtalk/bin/nitech_jp_atr503_m001.htsvoice'
 
     #発声のスピード
     r = '1.0'
